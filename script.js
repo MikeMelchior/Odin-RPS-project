@@ -4,10 +4,17 @@ const computerPlay = () => {
     return moves[randInt]
 };
 
-const computerSelection = computerPlay()
-const playerSelection = prompt('Choose rock, paper, or scissors')
 
-const playRound = (playerSelection, computerSelection) => {
+function playRound(playerSelection, computerSelection) {
+    computerSelection = computerPlay();
+    playerSelection = playerSelection.toLowerCase();
+    if (playerSelection =='rock' || playerSelection == 'scissors'
+        || playerSelection == 'paper') {
+            
+        } else {
+            console.log('choose a valid move');
+            return 'c'
+        }
     if (playerSelection == computerSelection) {
         return "It's a tie!"
     }
@@ -23,3 +30,34 @@ const playRound = (playerSelection, computerSelection) => {
     }
 };
 
+// let computerSelection = computerPlay()
+
+
+const game = () => {
+    let playerScore = 0;
+    let computerScore = 0;
+    
+    while (playerScore < 3 && computerScore < 3){
+        let playerSelection = prompt('choose rock paper or scissors');
+        let computerSelection = computerPlay();
+        let result = null;
+        result = playRound(playerSelection, computerSelection)
+        if (result[0] == 'I' || result[0] == 'c'){
+            continue;
+        } else if (result.slice(0, 5) == 'You W') {
+            playerScore += 1;
+            console.log(result, `score: player: ${playerScore} computer: ${computerScore}`);
+        } else if (result.slice(0, 5) == 'You L') {
+            computerScore += 1;
+            console.log(result, `score: player: ${playerScore} computer: ${computerScore}`);
+
+        } 
+        
+    };
+    if (playerScore == 3) {
+        console.log(`You Win ${playerScore} - ${computerScore}`)
+    } else if (computerScore == 3) {
+        console.log(`You Lose ${playerScore} - ${computerScore}`)
+    }
+
+}
