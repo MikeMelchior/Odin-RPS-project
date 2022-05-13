@@ -12,8 +12,8 @@ function playRound(playerSelection, computerSelection) {
         || playerSelection == 'paper') {
             
         } else {
-            console.log('choose a valid move');
-            return 'c'
+            alert('choose a valid move');
+            return 'choose a valid move'
         }
     if (playerSelection == computerSelection) {
         return "It's a tie!"
@@ -42,22 +42,28 @@ const game = () => {
         let computerSelection = computerPlay();
         let result = null;
         result = playRound(playerSelection, computerSelection)
-        if (result[0] == 'I' || result[0] == 'c'){
+        /* check for invalid move in next line*/
+        if (result[0] == 'c'){
             continue;
+        } else if (result[0] == 'I') {
+            alert(`Draw, both chose ${playerSelection}`)
+
         } else if (result.slice(0, 5) == 'You W') {
             playerScore += 1;
-            console.log(result, `score: player: ${playerScore} computer: ${computerScore}`);
+            alert(`${result}, score: player: ${playerScore} computer: ${computerScore}`);
         } else if (result.slice(0, 5) == 'You L') {
             computerScore += 1;
-            console.log(result, `score: player: ${playerScore} computer: ${computerScore}`);
+            alert(`${result}, score: player: ${playerScore} computer: ${computerScore}`);
 
         } 
         
     };
     if (playerScore == 3) {
-        console.log(`You Win ${playerScore} - ${computerScore}`)
+        alert(`You Win! Your score: ${playerScore} Computer: ${computerScore}`)
     } else if (computerScore == 3) {
-        console.log(`You Lose ${playerScore} - ${computerScore}`)
+        alert(`You Lose! Your score: ${playerScore} Computer: ${computerScore}`)
     }
 
 }
+
+game()
