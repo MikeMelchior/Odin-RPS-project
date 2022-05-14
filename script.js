@@ -33,37 +33,39 @@ function playRound(playerSelection, computerSelection) {
 // let computerSelection = computerPlay()
 
 
-const game = () => {
-    let playerScore = 0;
-    let computerScore = 0;
+// const game = () => {
+//     let playerScore = 0;
+//     let computerScore = 0;
     
-    while (playerScore < 3 && computerScore < 3){
-        let playerSelection = prompt('choose rock paper or scissors');
-        let computerSelection = computerPlay();
-        let result = null;
-        result = playRound(playerSelection, computerSelection)
-        /* check for invalid move in next line*/
-        if (result[0] == 'c'){
-            continue;
-        } else if (result[0] == 'I') {
-            alert(`Draw, both chose ${playerSelection}`)
+//     while (playerScore < 3 && computerScore < 3){
+//         let playerSelection = prompt('choose rock paper or scissors');
+//         let computerSelection = computerPlay();
+//         let result = null;
+//         result = playRound(playerSelection, computerSelection)
+//         /* check for invalid move in next line*/
+//         if (result[0] == 'c'){
+//             continue;
+//         } else if (result[0] == 'I') {
+//             alert(`Draw, both chose ${playerSelection}`)
 
-        } else if (result.slice(0, 5) == 'You W') {
-            playerScore += 1;
-            alert(`${result}, score: player: ${playerScore} computer: ${computerScore}`);
-        } else if (result.slice(0, 5) == 'You L') {
-            computerScore += 1;
-            alert(`${result}, score: player: ${playerScore} computer: ${computerScore}`);
+//         } else if (result.slice(0, 5) == 'You W') {
+//             playerScore += 1;
+//             alert(`${result}, score: player: ${playerScore} computer: ${computerScore}`);
+//         } else if (result.slice(0, 5) == 'You L') {
+//             computerScore += 1;
+//             alert(`${result}, score: player: ${playerScore} computer: ${computerScore}`);
 
-        } 
+//         } 
         
-    };
-    if (playerScore == 3) {
-        alert(`You Win! Your score: ${playerScore} Computer: ${computerScore}`)
-    } else if (computerScore == 3) {
-        alert(`You Lose! Your score: ${playerScore} Computer: ${computerScore}`)
-    }
+//     };
+//     if (playerScore == 3) {
+//         alert(`You Win! Your score: ${playerScore} Computer: ${computerScore}`)
+//     } else if (computerScore == 3) {
+//         alert(`You Lose! Your score: ${playerScore} Computer: ${computerScore}`)
+//     }
 
-}
+// }
 
-game()
+// game()
+
+
