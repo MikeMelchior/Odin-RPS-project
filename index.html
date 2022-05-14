@@ -6,30 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/3c0d432578.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
+
 </head>
 <body>
     
     <div class="title-content">
         <div class="scorecard">
-            <h1>Score:</h1>
+            <h1>- choose your move -</h1>
             <div class="scores">
-                <p >Player score:</p>
-                <p >Computer score:</p>
+                <p class="your-score">Your score: <br> #</p>
+                <p class="comp-score">Computer score: <br> #</p>
             </div>
         </div>
 
     </div>
 
     <div class="play-area">
-        <p>Choose your move!</p>
-        <div class='buttons'>   
-            <input type="image" src="rock.jpg" class='rock'/>  
-            <input type="image" src="paper.avif" class="paper"/>
-            <input type="image" src="scissors.avif" class="scissors"/>
+        <div class='buttons'>  
+            <div class="rock">
+                <p>rock.</p>
+                <i class="fa-solid fa-hand-back-fist"></i>
+            </div>
+            <div class="paper">
+                <p>paper.</p>
+                <i class="fa-solid fa-hand"></i>
+            </div>
+            <div class="scissors">
+                <p>scissors.</p>
+                <i class="fa fa-solid fa-hand-scissors"></i>
+            </div>
+             
+            
         </div>
     </div>
+<!--
+<i class="fa-solid fa-hand-back-fist"></i>
+<i class="fa-solid fa-hand"></i>
+<i class="fa-solid fa-hand-scissors"></i>
 
+-->
 
+<!-- <script>
+    window.onload = function () {
+      var span = document.createElement('span');
+    
+      span.className = 'fa';
+      span.style.display = 'none';
+      document.body.insertBefore(span, document.body.firstChild);
+      
+      alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
+        
+      document.body.removeChild(span);
+    };
+    </script> -->
 </body>
 </html>
