@@ -6,47 +6,51 @@ const computerPlay = () => {
 
 let playerSelection;
 let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
+
 
 function playRound(playerSelection, computerSelection) {
+
     computerSelection = computerPlay();
-    
-    // playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
+
     // if (playerSelection =='rock' || playerSelection == 'scissors'
     //     || playerSelection == 'paper') {
-            
     //     } else {
     //         alert('choose a valid move');
     //         return 'choose a valid move'
     //     }
+
     if (playerSelection == computerSelection) {
         //return "It's a tie!"
-        alert("it's a tie!")
+        //alert("it's a tie!")
     }
+
     if (playerSelection == 'rock' && computerSelection == 'scissors'
         || playerSelection == 'paper' && computerSelection == 'rock'
         || playerSelection == 'scissors' && computerSelection == 'paper') {
         //return `You Win! ${playerSelection} beats ${computerSelection}`
-        alert(`You Win! ${playerSelection} beats ${computerSelection}`)
+        //alert(`You Win! ${playerSelection} beats ${computerSelection}`)
     }
+
     if (playerSelection == 'scissors' && computerSelection == 'rock'
     || playerSelection == 'rock' && computerSelection == 'paper'
     || playerSelection == 'paper' && computerSelection == 'scissors') {
         //return `You Lose! ${computerSelection} beats ${playerSelection}`
-        alert(`You Lose! ${computerSelection} beats ${playerSelection}`)
-
+        //alert(`You Lose! ${computerSelection} beats ${playerSelection}`) 
     }
 };
 
-// let computerSelection = computerPlay()
 
 
 // const game = () => {
-//     let playerScore = 0;
-//     let computerScore = 0;
+//     playerScore = 0;
+//     computerScore = 0;
     
 //     while (playerScore < 3 && computerScore < 3){
 //         let playerSelection = prompt('choose rock paper or scissors');
-//         let computerSelection = computerPlay();
+//         computerSelection = computerPlay();
 //         let result = null;
 //         result = playRound(playerSelection, computerSelection)
 //         /* check for invalid move in next line*/
@@ -79,6 +83,9 @@ function playRound(playerSelection, computerSelection) {
 const buttonOne = document.querySelector('.rock');
 const buttonTwo = document.querySelector('.paper');
 const buttonThree = document.querySelector('.scissors');
+const playButton = document.querySelector('.play-button')
+const showPlayerScore = document.querySelector('.your-current-score')
+const showCompScore = document.querySelector('.comp-current-score')
 
 
 function rock(e) {
@@ -103,3 +110,4 @@ function scissors(e) {
 buttonOne.addEventListener('click', rock);
 buttonTwo.addEventListener('click', paper);
 buttonThree.addEventListener('click', scissors);
+//playButton.addEventListener('click', game)
