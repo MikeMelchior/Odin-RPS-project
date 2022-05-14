@@ -1,23 +1,77 @@
 body {
     margin: 0px;
     display: flex;
-}
-
-.buttons {
-    flex: 1;
-    width: 100vw;
-    height: 75vh;
-    display: flex;
-    background-color: rgba(0, 185, 205, 0.8);
-    padding: 100px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 100px;
-    
+    background-color: rgba(0, 185, 205, 1);
 }
 
-.buttons button {
-    font-size: 40px;
-    width: 250px;
-    height: 100px;
+.box {
+    border: 2px solid black;
 }
+
+.title-content {
+    display: flex;
+    width: 50%;
+}
+    .scorecard {
+        flex: 1;
+        background-color: rgba(100, 100, 100, 0.3);
+        background-color: orange;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        justify-content: center;
+        align-items: center;
+    }
+        .scores {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: green;
+        }
+            .scores p {
+                flex: 1;
+                font-size: 20px;
+            }
+
+
+.play-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+    .play-area p {
+        font-size: 50px;
+        margin-bottom: 0px;
+        margin-top: 90px;
+    }
+    .buttons {
+        flex: 1;
+        width: 100vw;
+        height: 75vh;
+        display: flex;
+        padding: 100px;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        
+    }
+    .buttons input {
+        font-size: 40px;
+        width: 250px;
+        height: auto;
+        
+    }
+    .buttons button:hover {
+        background-color: red;
+        color: white;
+    }
+    .buttons .rock {
+    width: 250px;
+    height: 240px;
+    }
