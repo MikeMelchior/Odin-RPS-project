@@ -4,29 +4,36 @@ const computerPlay = () => {
     return moves[randInt]
 };
 
+let playerSelection;
+let computerSelection;
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
-    playerSelection = playerSelection.toLowerCase();
-    if (playerSelection =='rock' || playerSelection == 'scissors'
-        || playerSelection == 'paper') {
+    
+    // playerSelection = playerSelection.toLowerCase();
+    // if (playerSelection =='rock' || playerSelection == 'scissors'
+    //     || playerSelection == 'paper') {
             
-        } else {
-            alert('choose a valid move');
-            return 'choose a valid move'
-        }
+    //     } else {
+    //         alert('choose a valid move');
+    //         return 'choose a valid move'
+    //     }
     if (playerSelection == computerSelection) {
-        return "It's a tie!"
+        //return "It's a tie!"
+        alert("it's a tie!")
     }
     if (playerSelection == 'rock' && computerSelection == 'scissors'
         || playerSelection == 'paper' && computerSelection == 'rock'
         || playerSelection == 'scissors' && computerSelection == 'paper') {
-        return `You Win! ${playerSelection} beats ${computerSelection}`
+        //return `You Win! ${playerSelection} beats ${computerSelection}`
+        alert(`You Win! ${playerSelection} beats ${computerSelection}`)
     }
     if (playerSelection == 'scissors' && computerSelection == 'rock'
     || playerSelection == 'rock' && computerSelection == 'paper'
     || playerSelection == 'paper' && computerSelection == 'scissors') {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`
+        //return `You Lose! ${computerSelection} beats ${playerSelection}`
+        alert(`You Lose! ${computerSelection} beats ${playerSelection}`)
+
     }
 };
 
@@ -69,3 +76,30 @@ function playRound(playerSelection, computerSelection) {
 // game()
 
 
+const buttonOne = document.querySelector('.rock');
+const buttonTwo = document.querySelector('.paper');
+const buttonThree = document.querySelector('.scissors');
+
+
+function rock(e) {
+    playRound('rock', computerSelection);
+    //console.log('rock')
+    //console.log(e)
+}
+
+function paper(e) {
+    playRound('paper', computerSelection);
+    //console.log('paper');
+    //console.log(e);
+}
+
+function scissors(e) {
+    playRound('scissors', computerSelection)
+    //console.log('scissors');
+    //console.log(e);
+}
+
+
+buttonOne.addEventListener('click', rock);
+buttonTwo.addEventListener('click', paper);
+buttonThree.addEventListener('click', scissors);
