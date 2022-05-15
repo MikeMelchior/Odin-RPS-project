@@ -16,10 +16,42 @@ body {
 
 .title-content {
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
-    margin-top: 10%;
+    align-items: center;
+    margin-top: 5%;
 }
+    .options {
+        height: 10%;
+        width: 100%;
+        display: flex;
+        
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+        .options p {
+                font-size: 20px;
+                font-family: monospace;
+
+            }
+            .options button {
+                padding: 10px 25px;
+                font-size: 25px;
+                font-family: monospace;
+                text-align: center;
+                background-color: rgb(23, 237, 116);
+                display: flex;
+                justify-content: center;
+                min-width: 10%;
+                
+            }
+            .options button:hover {
+                background-color: #58df5d;
+                transform: scale(1.06);
+            }
+
     .scorecard {
         background-color: rgba(255, 255, 255, 0.3);
         width: 40%;
@@ -55,23 +87,8 @@ body {
                 margin-bottom: 0px;
             }
 
-.options {
-    height: 10%;
-    width: 100%;
-    margin-top: 70px;
-    display: flex;
-    justify-content: center;
 
-}
-    .options .play-button {
-        padding: 10px 25px;
-        font-size: 25px;
-        font-family: monospace;
-        background-color: rgb(23, 237, 116);
-    }
-    .options .play-button:hover {
-        background-color: #58df5d;
-    }
+    
 
 
 
@@ -79,17 +96,29 @@ body {
     flex-direction: column;
     align-items: center;
     display: flex;
+    width: 100%;
+    margin-top: 40px;
+    
 }
-    .play-area p {
+    .round-output {
+        display: flex;
+        height: 50px;
+    }
+    .round-output p{
+        font-size: 30px;
+        font-weight: bold;
+        font-family: monospace;
+        margin: 0px;
+    }
+    .buttons p {
         font-size: 50px;
         margin-bottom: 40px;
-        margin-top: 70px;
+        margin-top: 40px;
 
         font-family: monospace;
     }
     .buttons {
         
-        width: 100%;
         height: 55%;
         display: flex;
         
@@ -116,3 +145,21 @@ body {
     .rock {
         padding: 0px 40px;
     }
+
+
+#green-text {
+    color: green;
+    text-shadow: -6px -3px 14px #0ff7e0;
+    font-size: 40px;
+
+}
+
+#red-text {
+    color: red;
+    text-shadow: -6px -3px 12px black;
+    font-size: 40px;
+}
+
+.active {
+    border: 4px solid red;
+}
