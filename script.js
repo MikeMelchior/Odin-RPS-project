@@ -1,8 +1,7 @@
 const computerPlay = () => {
     let moves = ['rock', 'paper', 'scissors'];
     let randInt = Math.floor(Math.random() * 3);
-    return moves[randInt]
-};
+    return moves[randInt]};
 
 function playRound(playerSelection, computerSelection) {
 
@@ -10,36 +9,29 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == computerSelection) {
         result = "It's a tie!";
-        showResult()
-    }
+        showResult()};
 
     if (playerSelection == 'rock' && computerSelection == 'scissors'
         || playerSelection == 'paper' && computerSelection == 'rock'
         || playerSelection == 'scissors' && computerSelection == 'paper') {
             playerScore += 1;
             result = `You Win! ${playerSelection} beats ${computerSelection}`;
-            showResult()
-    }
+            showResult()};
 
     if (playerSelection == 'scissors' && computerSelection == 'rock'
     || playerSelection == 'rock' && computerSelection == 'paper'
     || playerSelection == 'paper' && computerSelection == 'scissors') {
         computerScore += 1;
         result = `You Lose! ${computerSelection} beats ${playerSelection}`;
-            showResult()
-    }
-    game()
-};
+            showResult()};
+    game()};
 
 
 const game = () => {
-
     let winScore;
     if (threeFlag) winScore = 2;
     if (fiveFlag) winScore = 3;
     if (sevenFlag) winScore = 4;
-
-
 
     if (playerScore == winScore) {
         result = `You Win! Your score: ${playerScore} Computer: ${computerScore}`
@@ -51,10 +43,7 @@ const game = () => {
         roundMessage.setAttribute('id', 'red-text');
         showResult();
         winMessage = true;
-    } 
-}
-
-
+    }};
 
 let computerSelection;
 
@@ -62,14 +51,11 @@ let playerScore = 0;
 let computerScore = 0;
 
 let result = '';
-
 let winMessage;
 
 let threeFlag = false;
 let fiveFlag = false;
 let sevenFlag = false;
-
-
 
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
@@ -87,91 +73,85 @@ const threeRounds = document.querySelector('.three');
 const fiveRounds = document.querySelector('.five');
 const sevenRounds = document.querySelector('.seven');
 
-
-
-
 function rock(e) {
     if (winMessage) reset();
     playRound('rock', computerSelection);
     showPlayerScore.textContent = `${playerScore}`;
-    showCompScore.textContent = `${computerScore}`;
-}
+    showCompScore.textContent = `${computerScore}`;};
 function paper(e) {
     if (winMessage) reset();
     playRound('paper', computerSelection);
     showPlayerScore.textContent = `${playerScore}`;
-    showCompScore.textContent = `${computerScore}`;
-}
+    showCompScore.textContent = `${computerScore}`;};
 function scissors(e) {
     if (winMessage) reset();
     playRound('scissors', computerSelection)
     showPlayerScore.textContent = `${playerScore}`;
-    showCompScore.textContent = `${computerScore}`;
-}
+    showCompScore.textContent = `${computerScore}`;};
 
 function reset() {
     winMessage = false;
-    roundMessage.removeAttribute('id')
-
+    roundMessage.removeAttribute('id');
     resetScore();
     result = '';
-    showResult()
-    showPlayerScore.textContent = '0'
-    showCompScore.textContent = '0'
+    showResult();
+    showPlayerScore.textContent = '0';
+    showCompScore.textContent = '0';
     if (threeFlag) {
-        threeRounds.classList.toggle('active')
+        threeRounds.classList.toggle('active');
         threeFlag = false;
-        
     }
-}
+    if (fiveFlag) {
+        fiveRounds.classList.toggle('active');
+        fiveFlag = false;
+    }
+    if (sevenFlag) {
+        sevenRounds.classList.toggle('active');
+        sevenFlag = false;
+    }};
 
 function resetScore() {
     playerScore = 0;
     computerScore = 0;
     showPlayerScore.textContent = `${playerScore}`;
-    showCompScore.textContent = `${computerScore}`;
-}
+    showCompScore.textContent = `${computerScore}`;};
 
 function showResult() {
-    roundMessage.textContent = `${result}`
-}
+    roundMessage.textContent = `${result}`};
 
 function bestOfThree() {
-    if (winMessage) reset();
+    if (winMessage || fiveFlag || sevenFlag) reset();
     resetScore();
     threeFlag = !threeFlag;
-    threeRounds.classList.toggle('active')
+    threeRounds.classList.toggle('active');
     if (threeFlag) {
         game();
-    }
-    
-}
-
-// function bestOfFive() {
-//     fiveFlag = true;
-//     game();
-// }
-
-// function bestOfSeven() {
-//     sevenFlag = true;
-//     game();
-// }
-
-function log() {
-    console.log('hello')
-}
+    }};
+function bestOfFive() {
+    if (winMessage || threeFlag || sevenFlag) reset();
+    resetScore();
+    fiveFlag = !fiveFlag;
+    fiveRounds.classList.toggle('active')
+    if (fiveFlag) {
+        game();
+    }};
+function bestOfSeven() {
+    if (winMessage || threeFlag || fiveFlag) reset();
+    resetScore();
+    sevenFlag = !sevenFlag;
+    sevenRounds.classList.toggle('active')
+    if (sevenFlag) {
+        game();
+    }};
 
 
 rockButton.addEventListener('click', rock);
 paperButton.addEventListener('click', paper);
 scissorsButton.addEventListener('click', scissors);
 
-
-resetButton.addEventListener('click', reset)
-
+resetButton.addEventListener('click', reset);
 
 threeRounds.addEventListener('click', bestOfThree);
-// fiveRounds.addEventListener('click', bestOfFive)
-// sevenRounds.addEventListener('click', bestOfSeven)
+fiveRounds.addEventListener('click', bestOfFive);
+sevenRounds.addEventListener('click', bestOfSeven);
 
-showResult()
